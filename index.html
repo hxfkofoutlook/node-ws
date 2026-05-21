@@ -3,720 +3,1112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Clean Energy Applications | Powering a Sustainable Future</title>
     <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --card-bg: #ffffff;
+            --section-bg: #f1f5f9;
+            --gradient-1: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+            --gradient-2: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            --gradient-solar: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+            --gradient-wind: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+            --gradient-hydro: linear-gradient(135deg, #34d399 0%, #06b6d4 100%);
+            --gradient-geo: linear-gradient(135deg, #f87171 0%, #ec4899 100%);
+            --gradient-bio: linear-gradient(135deg, #a3e635 0%, #22c55e 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
             background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            padding: 0 2rem;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .navbar.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.95);
         }
-
         .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            height: 70px;
         }
-
-        .logo {
+        .nav-logo {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
-
-        .logo i {
-            font-size: 2rem;
+        .nav-logo .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #fff;
+            flex-shrink: 0;
         }
-
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
+            gap: 0.25rem;
+            align-items: center;
         }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
+        .nav-links a {
             text-decoration: none;
+            color: var(--gray);
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-dark);
+            background: rgba(16, 185, 129, 0.08);
+        }
+        .nav-cta {
+            background: var(--gradient-1) !important;
+            color: #fff !important;
+            padding: 0.6rem 1.5rem !important;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: #fff !important;
+            background: var(--gradient-1) !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+            padding: 8px;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
+        /* ========== HERO ========== */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
             position: relative;
-            display: inline-block;
+            background: linear-gradient(180deg, #f0fdf4 0%, #ecfeff 40%, #f8fafc 100%);
+            padding: 6rem 2rem 4rem;
+            overflow: hidden;
         }
-
-        .section-title h2::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary-dark);
+            font-weight: 600;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             margin-bottom: 1.5rem;
-            color: var(--dark);
+            letter-spacing: 0.5px;
         }
-
-        .about-text p {
+        .hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
             margin-bottom: 1.5rem;
+            color: var(--darker);
         }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        .hero h1 .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
+        .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        .hero-buttons {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            letter-spacing: -0.2px;
+        }
+        .btn-primary {
+            background: var(--gradient-1);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.45);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--gray-light);
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary-dark);
+            background: rgba(16, 185, 129, 0.04);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+        .hero-stat .label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounceDown 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .scroll-indicator svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gray);
+        }
+        @keyframes bounceDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(12px);
+            }
         }
 
-        .social-links a {
+        /* ========== SECTION STYLES ========== */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header .section-tag {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            background: rgba(16, 185, 129, 0.08);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: var(--darker);
+            margin-bottom: 0.8rem;
+        }
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* ========== ENERGY CARDS GRID ========== */
+        .energy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.8rem;
+        }
+        .energy-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.2rem 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        .energy-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+        .energy-card .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.4rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .icon-wind {
+            background: var(--gradient-wind);
+        }
+        .icon-solar {
+            background: var(--gradient-solar);
+        }
+        .icon-hydro {
+            background: var(--gradient-hydro);
+        }
+        .icon-geo {
+            background: var(--gradient-geo);
+        }
+        .icon-bio {
+            background: var(--gradient-bio);
+        }
+        .energy-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.3px;
+        }
+        .energy-card .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .energy-card p {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+        .energy-card .card-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .card-stat .stat-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        .card-stat .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        .card-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .card-learn-more:hover {
+            gap: 10px;
+        }
+        .card-learn-more svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== APPLICATIONS SECTION ========== */
+        .applications-section {
+            background: var(--darker);
+            color: #fff;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .applications-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .applications-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .applications-section .section-header .section-tag {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+        .applications-section .section-header h2 {
+            color: #fff;
+        }
+        .applications-section .section-header p {
+            color: #94a3b8;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .app-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 2rem 1.8rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        .app-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-4px);
+        }
+        .app-card .app-icon {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+        .app-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .app-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ========== HOW IT WORKS ========== */
+        .how-it-works {
+            background: #fff;
+            padding: 6rem 2rem;
+        }
+        .how-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            counter-reset: step;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+            padding: 2rem 1.5rem;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-1);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
             border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            margin-bottom: 1.2rem;
+        }
+        .step h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+            color: var(--gray);
+            font-size: 0.9rem;
         }
 
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            background: var(--gradient-1);
+            padding: 4rem 2rem;
             text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -30%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta-banner .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-banner h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        .cta-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        .btn-white {
+            background: #fff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 0.9rem 2.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--darker);
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-col ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-col ul li a:hover {
+            color: #34d399;
+        }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 2rem auto 0;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
         }
 
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
+        /* ========== BACK TO TOP ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-1);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
         }
 
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #fff;
                 flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 6rem 2rem 2rem;
+                gap: 0.5rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-xl);
+                z-index: 1000;
             }
-            
-            nav ul.active {
+            .nav-links.active {
+                right: 0;
+            }
+            .hamburger {
                 display: flex;
             }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
+            .hero {
+                padding: 5rem 1.5rem 3rem;
             }
-            
-            .mobile-menu {
-                display: block;
+            .hero-stats {
+                gap: 1.5rem;
             }
-            
-            .initiatives-grid {
+            .hero-stat .number {
+                font-size: 1.8rem;
+            }
+            .energy-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .footer-content {
+            .section {
+                padding: 4rem 1.2rem;
+            }
+            .app-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stats {
-                grid-template-columns: 1fr;
+            .steps {
+                grid-template-columns: 1fr 1fr;
             }
         }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                CleanFuture
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#energy-sources" class="active">Energy Sources</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#cta" class="nav-cta">Get Involved</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
             </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🌍 Sustainable Energy for All</span>
+            <h1>Harnessing <span class="highlight">Clean Energy</span> for a Brighter Tomorrow</h1>
+            <p>Discover how wind, solar, hydropower, geothermal, and biomass energy are transforming the way we power our world — reducing carbon emissions and building a sustainable future.</p>
+            <div class="hero-buttons">
+                <a href="#energy-sources" class="btn btn-primary">
+                    Explore Sources
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#applications" class="btn btn-outline">View Applications</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number" data-count="30">30%</div>
+                    <div class="label">Global Renewable Electricity (2023)</div>
                 </div>
+                <div class="hero-stat">
+                    <div class="number" data-count="12">12M+</div>
+                    <div class="label">Jobs in Renewable Energy</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number" data-count="70">70%</div>
+                    <div class="label">Cost Reduction in Solar (2010-2023)</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('energy-sources').scrollIntoView({behavior:'smooth'})">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
+
+    <!-- ==================== ENERGY SOURCES ==================== -->
+    <section class="section" id="energy-sources">
+        <div class="section-header">
+            <span class="section-tag">Energy Sources</span>
+            <h2>Major Types of Clean Energy</h2>
+            <p>Each renewable energy source plays a vital role in the global transition away from fossil fuels.</p>
+        </div>
+        <div class="energy-grid">
+            <!-- Wind -->
+            <div class="energy-card">
+                <div class="card-icon icon-wind">💨</div>
+                <h3>Wind Energy</h3>
+                <span class="card-subtitle">Onshore & Offshore Turbines</span>
+                <p>Wind turbines convert kinetic energy from the wind into mechanical power, which is then transformed into electricity. Modern turbines can power thousands of homes with a single rotation.</p>
+                <div class="card-stats">
+                    <div class="card-stat">
+                        <div class="stat-value">837 GW</div>
+                        <div class="stat-label">Global Capacity (2023)</div>
+                    </div>
+                    <div class="card-stat">
+                        <div class="stat-value">2,100+</div>
+                        <div class="stat-label">TWh Generated Annually</div>
+                    </div>
+                </div>
+                <a href="#" class="card-learn-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <!-- Solar -->
+            <div class="energy-card">
+                <div class="card-icon icon-solar">☀️</div>
+                <h3>Solar Energy</h3>
+                <span class="card-subtitle">Photovoltaic & Thermal Systems</span>
+                <p>Solar panels capture sunlight and convert it directly into electricity through the photovoltaic effect. Solar farms and rooftop installations are driving the decentralized energy revolution.</p>
+                <div class="card-stats">
+                    <div class="card-stat">
+                        <div class="stat-value">1,419 GW</div>
+                        <div class="stat-label">Global PV Capacity (2023)</div>
+                    </div>
+                    <div class="card-stat">
+                        <div class="stat-value">89%</div>
+                        <div class="stat-label">Cost Drop Since 2010</div>
+                    </div>
+                </div>
+                <a href="#" class="card-learn-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <!-- Hydropower -->
+            <div class="energy-card">
+                <div class="card-icon icon-hydro">🌊</div>
+                <h3>Hydropower</h3>
+                <span class="card-subtitle">Dams & Run-of-River Systems</span>
+                <p>Hydropower harnesses the energy of flowing or falling water to generate electricity. It remains the largest source of renewable electricity globally, providing reliable baseload power.</p>
+                <div class="card-stats">
+                    <div class="card-stat">
+                        <div class="stat-value">1,397 GW</div>
+                        <div class="stat-label">Global Installed Capacity</div>
+                    </div>
+                    <div class="card-stat">
+                        <div class="stat-value">4,300+</div>
+                        <div class="stat-label">TWh Generated Annually</div>
+                    </div>
+                </div>
+                <a href="#" class="card-learn-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <!-- Geothermal -->
+            <div class="energy-card">
+                <div class="card-icon icon-geo">🌋</div>
+                <h3>Geothermal Energy</h3>
+                <span class="card-subtitle">Earth's Internal Heat</span>
+                <p>Geothermal energy taps into the Earth's subsurface heat to generate electricity and provide direct heating. It offers a constant, 24/7 renewable energy source with a small land footprint.</p>
+                <div class="card-stats">
+                    <div class="card-stat">
+                        <div class="stat-value">16.3 GW</div>
+                        <div class="stat-label">Global Electric Capacity</div>
+                    </div>
+                    <div class="card-stat">
+                        <div class="stat-value">~97</div>
+                        <div class="stat-label">TWh Generated Annually</div>
+                    </div>
+                </div>
+                <a href="#" class="card-learn-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <!-- Biomass -->
+            <div class="energy-card">
+                <div class="card-icon icon-bio">🌱</div>
+                <h3>Biomass Energy</h3>
+                <span class="card-subtitle">Organic Matter Conversion</span>
+                <p>Biomass energy comes from organic materials such as wood, agricultural residues, and algae. When sustainably managed, it provides a carbon-neutral alternative for heat, electricity, and biofuels.</p>
+                <div class="card-stats">
+                    <div class="card-stat">
+                        <div class="stat-value">148 GW</div>
+                        <div class="stat-label">Global Bioenergy Capacity</div>
+                    </div>
+                    <div class="card-stat">
+                        <div class="stat-value">~685</div>
+                        <div class="stat-label">TWh Generated Annually</div>
+                    </div>
+                </div>
+                <a href="#" class="card-learn-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== APPLICATIONS ==================== -->
+    <section class="applications-section" id="applications">
+        <div class="applications-container">
+            <div class="section-header">
+                <span class="section-tag">Real-World Impact</span>
+                <h2>Applications of Clean Energy</h2>
+                <p>Renewable energy is powering homes, industries, transportation, and entire cities across the globe.</p>
+            </div>
+            <div class="app-grid">
+                <div class="app-card">
+                    <div class="app-icon">🏠</div>
+                    <h4>Residential Power</h4>
+                    <p>Rooftop solar panels and residential wind turbines provide households with clean, self-generated electricity, slashing utility bills and carbon footprints.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">🏭</div>
+                    <h4>Industrial Manufacturing</h4>
+                    <p>Factories integrate solar thermal and biomass systems to meet high-temperature process heat demands while reducing reliance on natural gas.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">🚗</div>
+                    <h4>Electric Transportation</h4>
+                    <p>EVs charged with renewable energy eliminate tailpipe emissions. Solar-powered charging stations are expanding across highways worldwide.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">🏙️</div>
+                    <h4>Smart Cities</h4>
+                    <p>Urban centers deploy smart grids integrating wind and solar to efficiently manage energy distribution, street lighting, and public transit systems.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">🌾</div>
+                    <h4>Agriculture & Farming</h4>
+                    <p>Solar-powered irrigation pumps and biogas digesters help farms operate sustainably, reducing diesel dependence and managing waste effectively.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">🏝️</div>
+                    <h4>Remote & Off-Grid Areas</h4>
+                    <p>Microgrids combining solar, wind, and battery storage bring electricity to remote communities for the first time, enabling education and healthcare access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-container">
+            <div class="section-header">
+                <span class="section-tag">The Process</span>
+                <h2>How Clean Energy Reaches You</h2>
+                <p>From generation to consumption — understanding the journey of renewable electricity.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <h4>Energy Harvesting</h4>
+                    <p>Wind turbines spin, solar panels absorb photons, and water flows through turbines — capturing natural energy in its raw form.</p>
+                </div>
+                <div class="step">
+                    <h4>Power Conversion</h4>
+                    <p>Generators and inverters convert mechanical or DC electrical energy into grid-compatible alternating current (AC).</p>
+                </div>
+                <div class="step">
+                    <h4>Smart Grid Distribution</h4>
+                    <p>Advanced grid systems balance supply and demand, routing electricity efficiently to where it's needed most.</p>
+                </div>
+                <div class="step">
+                    <h4>End-User Consumption</h4>
+                    <p>Clean electricity powers homes, businesses, and vehicles — often paired with battery storage for round-the-clock reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="cta-banner" id="cta">
+        <div class="cta-content">
+            <h2>Join the Clean Energy Revolution</h2>
+            <p>Whether you're a homeowner, business leader, or policymaker — your choices matter. Together we can accelerate the transition to a fully sustainable energy future.</p>
+            <a href="#" class="btn-white">Get Involved Today</a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>CleanFuture</h4>
+                <p style="font-size:0.9rem;">Advocating for a world powered entirely by clean, renewable energy. Education, innovation, and action.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Energy Sources</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Wind Energy</a></li>
+                    <li><a href="#">Solar Energy</a></li>
+                    <li><a href="#">Hydropower</a></li>
+                    <li><a href="#">Geothermal</a></li>
+                    <li><a href="#">Biomass</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
             </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
-                </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Research & Data</a></li>
+                    <li><a href="#">Policy Updates</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
             </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
-                </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Twitter / X</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
-            </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CleanFuture. All rights reserved. | Clean energy data sourced from IRENA & IEA reports.</p>
         </div>
     </footer>
 
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+    <!-- ==================== SCRIPTS ==================== -->
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const allNavLinks = navLinks.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
 
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 80) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+
+            // Active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
                 }
             });
-        }
+            allNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        // Back to top
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-        // Smooth scrolling for navigation links
+        // Smooth scroll for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
     </script>
 </body>
-
 </html>
